@@ -18,4 +18,3 @@ clean:
 	rm exe
 	rm tmp_in/*
 	rm tmp_out/*
-

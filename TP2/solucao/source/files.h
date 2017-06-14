@@ -17,7 +17,7 @@ void init_file(File *p);
 
 void grow_file(File *p);
 
-void push_back_file(File *p, const char *c, int ler);
+void push_back_file(File *p, const char *c);
 
 void free_file(File *p);
 #endif

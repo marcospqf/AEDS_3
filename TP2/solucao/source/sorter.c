@@ -30,7 +30,7 @@ void ordena(FILE *in, FILE *out){
 	int memo=2;
 	int sz=0;
 	term *a = malloc(2*memo*sizeof(term));
-	char word[21];
+	char word[40];
 	int doc, freq, pos;
 
 	while(fscanf(in,"%s %d %d %d", word, &doc, &freq, &pos)==4){
@@ -51,6 +51,7 @@ void ordena(FILE *in, FILE *out){
 		fprintf(out,"%s %d %d %d\n", a[i].word, a[i].doc, a[i].freq, a[i].pos);
 		//printf("%s \n", a[i].word); 
 	}
+  free(a);
 }
 
 void mistura(FILE *in , FILE *in2, FILE *out){

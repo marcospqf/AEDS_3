@@ -12,15 +12,10 @@ void grow_file(File *p){
 
 }
 
-void push_back_file(File *p, const char *aux, int ler){
+void push_back_file(File *p, const char *aux){
 	if(p->size==p->reserved) grow_file(p);
 	FILE *fp;
-	if(ler){
-		fp=fopen(aux, "r");
-	}
-	else {
-		fp=fopen(aux, "w");
-	}
+	fp=fopen(aux, "r");
 	p->content[p->size++]=fp;
 }
 

@@ -27,7 +27,6 @@ void push_back_file(File *p, const char *aux, int ler){
 void free_file(File *p){
 	for(int i=0;i<p->size;i++){
 		fclose(p->content[i]);
-		free(p->content[i]);
 	}
 	free(p->content);
 }

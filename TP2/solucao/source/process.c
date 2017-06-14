@@ -32,12 +32,12 @@ void gen_namefile(char *namefile, char *numfile, char *basename){
 void process_file(FILE* in, int maxtam, int *ncreated, int idxdoc){	
 	maxtam=maxtam/2;
 	char word[40], numfile[40], namefile[40], basename[40]="./tmp_in/tmp\0";
-	get_num(*ncreated+1, numfile);
+	*ncreated=*ncreated + 1;
+	get_num(*ncreated, numfile);
 	gen_namefile(namefile, numfile, basename);
-	*ncreated= *ncreated+1;
 	int freq=1;
 	int pos=0;
-	printf("%s\n" , namefile);
+	//printf("%s\n" , namefile);
 	FILE *last= fopen(namefile, "w");
 	int tam=0;
 	while(fscanf(in, "%s",  word)==1){
@@ -48,11 +48,12 @@ void process_file(FILE* in, int maxtam, int *ncreated, int idxdoc){
 			tam+=x+12;
 		}
 		else{
-			get_num(*ncreated+1, numfile);
+	//		printf("%d\n", *ncreated);
+			*ncreated= *ncreated+1;
+			get_num(*ncreated, numfile);
 			gen_namefile(namefile, numfile, basename);
 			fclose(last);
-			*ncreated= *ncreated+1;
-			last=fopen(namefile,0);
+			last=fopen(namefile,"w");
 			fprintf(last,"%s %d %d %d\n", word, idxdoc, freq, pos);
 			tam=x+12;
 		}

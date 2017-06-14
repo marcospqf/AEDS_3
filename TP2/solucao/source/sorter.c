@@ -105,7 +105,7 @@ void merge_file(int node, int b, int e, char *basename, char *in){
 
 		gen_namefile(namefile_in, numfile_in, in);
 		gen_namefile(namefile_tr, numfile_tr, basename);
-		printf("arquivo: %s\n segtree: %s\n", namefile_in, namefile_tr);
+		//printf("arquivo: %s\n segtree: %s\n", namefile_in, namefile_tr);
 		input=fopen(namefile_in, "r");
 		tr=fopen(namefile_tr, "w");
 		
@@ -156,7 +156,7 @@ int menort(term a, term b){
 
 
 void gera_freq(char *input){
-	printf(" INPUT: %s\n", input);
+	//printf(" INPUT: %s\n", input);
 	FILE *in= fopen(input, "r");
 	
 	FILE *in2= fopen("./tmp_out/aux.txt","w");
@@ -195,7 +195,7 @@ void gera_output(char *input, char *output){
 	FILE *out= fopen(output, "w");
 	term cur, freq;
 	freq.doc=-1;
-	printf("%s\n", output);
+	//printf("%s\n", output);
 	while(fscanf(in,"%s %d %d %d", cur.word, &cur.doc, &cur.freq, &cur.pos)==4){
 		if(cur.doc!=freq.doc || !igual(cur.word, freq.word)){
 			fscanf(in2,"%s %d %d", freq.word, &freq.doc, &freq.freq);
